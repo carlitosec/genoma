@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body styleClass="waterImage">
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+		</ui:define>
+
+		<ui:define name="content">
+			<p></p>
+			<p></p>
+			<h:form>
+				<p:tabView>
+					<p:tab title="User Data">
+						<h:panelGrid id="grid" columns="2" cellpadding="5">
+							<h:graphicImage url="#{userController.user.person.picture}" height="90"/>
+							<h:inputHidden />
+							
+							<h:outputLabel value="Name: "
+								style="font-weight:bold" />
+							<p:outputLabel value="#{userController.user.person.name}" />
+								
+							<h:outputLabel value="Professional head line: "
+								style="font-weight:bold" />
+							<p:outputLabel value="#{userController.user.person.professionalHeadline}" />
+						</h:panelGrid>
+					</p:tab>
+					
+					<p:tab title="Location">
+						<h:panelGrid id="gridLocation" columns="2" cellpadding="5">
+							<h:outputLabel value="Country: "
+								style="font-weight:bold" />
+							<p:outputLabel value="#{userController.user.person.location.country}" />
+								
+							<h:outputLabel value="State/Province: "
+								style="font-weight:bold" />
+							<p:outputLabel value="#{userController.user.person.location.name}" />
+							
+							<h:outputLabel value="City: "
+								style="font-weight:bold" />
+							<p:outputLabel value="#{userController.user.person.location.shortName}" />
+							
+							<h:outputLabel value="Time Zone: "
+								style="font-weight:bold" />
+							<p:outputLabel value="#{userController.user.person.location.timezone}" />
+						</h:panelGrid>
+					</p:tab>
+
+					<p:tab title="Experience">
+						<p:dataTable var="experience" value="#{userController.experiences}" 
+							emptyMessage="No experience">
+							<f:facet name="header">
+					            Experiences
+					        </f:facet>
+					        
+					        <p:column>
+								<f:facet name="header">
+									<h:outputText value="Position" style="font-weight: bold !important;" />
+								</f:facet>
+								<h:outputText value="#{experience.name}" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="From" style="font-weight: bold !important;" />
+								</f:facet>
+								<h:outputText value="#{experience.fromYear} #{experience.fromMonth}" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="From" style="font-weight: bold !important;" />
+								</f:facet>
+								<h:outputText value="#{experience.toYear} #{experience.toMonth}" />
+							</p:column>
+						</p:dataTable>
+
+					</p:tab>
+					
+					<p:tab title="Studies">
+						<p:dataTable var="experience" value="#{userController.studies}" 
+							emptyMessage="No experience">
+							<f:facet name="header">
+					            Experiences
+					        </f:facet>
+					        
+					        <p:column>
+								<f:facet name="header">
+									<h:outputText value="Position" style="font-weight: bold !important;" />
+								</f:facet>
+								<h:outputText value="#{experience.name}" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="From" style="font-weight: bold !important;" />
+								</f:facet>
+								<h:outputText value="#{experience.fromYear} #{experience.fromMonth}" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="From" style="font-weight: bold !important;" />
+								</f:facet>
+								<h:outputText value="#{experience.toYear} #{experience.toMonth}" />
+							</p:column>
+						</p:dataTable>
+					</p:tab>
+
+				</p:tabView>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

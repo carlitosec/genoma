@@ -4,6 +4,7 @@
 package co.torre.genoma.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
@@ -21,7 +22,10 @@ public class Person {
 	private JsonNode flags;
 	private Integer weigth;
 	private String name;
-	private JsonNode location;
+	private String picture;
+	
+	@JsonProperty("location")
+	private Location location;
 	/**
 	 * @return the professionalHeadline
 	 */
@@ -97,13 +101,13 @@ public class Person {
 	/**
 	 * @return the location
 	 */
-	public JsonNode getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 	/**
 	 * @param location the location to set
 	 */
-	public void setLocation(JsonNode location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 	/**
@@ -129,6 +133,18 @@ public class Person {
 	 */
 	public void setCreated(String created) {
 		this.created = created;
+	}
+	/**
+	 * @return the picture
+	 */
+	public String getPicture() {
+		return picture;
+	}
+	/**
+	 * @param picture the picture to set
+	 */
+	public void setPicture(String picture) {
+		this.picture = picture;
 	};
 	
 	

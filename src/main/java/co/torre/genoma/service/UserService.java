@@ -10,6 +10,11 @@ import co.torre.genoma.model.User;
  *
  */
 public interface UserService {
+	/**
+	 * Get user information from API
+	 * @param userName
+	 * @return User object
+	 */
 	User getUserInfo(String userName);
 
 }

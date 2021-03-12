@@ -42,7 +42,4 @@ public class ConsumerDaoImpl<T> implements ConsumerDao<T>{
 		Response response = client.target(endPoint).request().get();
 		return (T) response.readEntity(new GenericType(type) {});
 	}
-	
-	
-
 }

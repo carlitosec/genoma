@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+		</ui:define>
+
+		<ui:define name="content">
+			<p></p>
+			<p></p>
+			<h:form>
+				<p:panel id="panel" header="Search People">
+					<p:messages>
+						<p:autoUpdate />
+					</p:messages>
+					
+					<h:outputLabel value="Person Code:" style="font-weight:bold" />
+					<h:outputText value="&#160;" />
+					<p:inputText value="#{userController.userName}" required="true" />
+					<h:outputText value="&#160;" />
+					<p:commandButton value="Search" ajax="false" icon="pi pi-check" id="searchBtn"
+						action="#{userController.findUserInfo()}"
+						style="margin-right:10px" validateClient="true" />
+				</p:panel>
+				<p:blockUI block="panel" trigger="searchBtn">
+					<h:outputText value="Loading..." style="white-space: nowrap;"/>
+				</p:blockUI>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<style type="text/css">
+		@font-face {
+		    font-family: 'nexa-heavy';
+		    src: url('fonts/nexa-heavy.eot');
+		    src: url('fonts/nexa-heavy.eot?#iefix') format('embedded-opentype'),
+		         url('fonts/nexa-heavy.woff') format('woff'),
+		         url('fonts/nexa-heavy.ttf') format('truetype');
+			font-weight: normal;	   
+		}
+		
+		body .ui-widget:not(.pi), body .ui-widget .ui-widget:not(.pi) {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
+			font-size: 14px !important;
+			/* background-image: url("#{resource['images/logoMain.png']}") !important; */ 
+		}
+		
+		.ui-widget, .ui-widget .ui-widget {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important];
+			font-size: 14px !important;
+			/* background-image: url("#{resource['images/logoMain.png']}") !important; */
+		}
+		
+		body .ui-steps .ui-steps-item {
+		    width: 15%;
+		}
+		 
+		body .ui-state-highlight {
+		    text-shadow: none !important;
+		}
+		 
+		body .ui-steps.custom {
+		    margin-bottom: 30px;
+		}
+		 
+		body .ui-steps.custom .ui-steps-item .ui-menuitem-link {
+		    height: 10px;
+		    padding: 0 1em;
+		    overflow: visible;
+		    border: 1px solid #c8c8c8;
+		    display: block;
+		    background-color: #FFFFFF;
+		}
+		 
+		body .ui-steps.custom .ui-steps-item .ui-menuitem-link .ui-steps-number {
+		    background-color: #0081c2;
+		    color: #FFFFFF;
+		    display: inline-block;
+		    width: 30px;
+		    border-radius: 10px;
+		    margin-top: -10px;
+		    margin-bottom: 10px;
+		    position: relative;
+		    top: -3px;
+		}
+		 
+		body .ui-steps.custom .ui-steps-item .ui-menuitem-link .ui-steps-title {
+		    margin-top: -6px;
+		}
+		 
+		body .ui-steps.custom .ui-steps-item.ui-state-highlight .ui-menuitem-link .ui-steps-title {
+		    color: #555;
+		}
+		
+		body .ui-inputfield {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
+			font-size: 14px !important;
+		}
+		
+		body .ui-datatable .ui-datatable-data>tr.ui-state-highlight {
+	    	border: 1px solid grey;
+	    	background-color: #c8c8c8 !important;
+	    	color: #fff;
+	    }
+		
+		/* body .ui-accordion .ui-accordion-header.ui-state-active {
+			outline: 0 none;
+		    border: 1px solid grey !important;
+		    background-color: grey !important; 
+		    color: #fff;
+		} */
+		
+		.noBorders tr, .noBorders td {
+		    background: none !important;
+		    border: none !important;
+		}
+		
+	</style>
+</h:head>
+
+<h:body>
+	<div id="top" class="top">
+		<p:panel id="headerSection">
+		<ui:insert name="top"></ui:insert>
+		<h:form>
+			<p:growl id="messages" life="2000" />
+			<p:menubar id="menu">
+				<p:submenu label="Menu options">
+					<p:menuitem value="Personas" url="userFilter.xhtml" icon="pi pi-user" />
+				</p:submenu>
+			</p:menubar>
+		</h:form>
+		</p:panel>
+	</div>
+
+	<div id="content" class="left_content" >
+		<ui:insert name="content"></ui:insert>
+	</div>
+
+	<div id="bottom" class="bottom">
+		<ui:insert name="bottom"></ui:insert>
+	</div>
+	<p:sticky target="headerSection" />
+</h:body>
+</html>
