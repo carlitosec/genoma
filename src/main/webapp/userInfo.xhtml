@@ -19,96 +19,108 @@
 				<p:tabView>
 					<p:tab title="User Data">
 						<h:panelGrid id="grid" columns="2" cellpadding="5">
-							<h:graphicImage url="#{userController.user.person.picture}" height="90"/>
+							<h:graphicImage url="#{userController.user.person.picture}"
+								height="90" />
 							<h:inputHidden />
-							
-							<h:outputLabel value="Name: "
-								style="font-weight:bold" />
+
+							<h:outputLabel value="Name: " style="font-weight:bold; font-size: 14px !important;" />
 							<p:outputLabel value="#{userController.user.person.name}" />
-								
+
 							<h:outputLabel value="Professional head line: "
-								style="font-weight:bold" />
-							<p:outputLabel value="#{userController.user.person.professionalHeadline}" />
+								style="font-weight:bold; font-size: 14px !important;" />
+							<p:outputLabel
+								value="#{userController.user.person.professionalHeadline}" />
 						</h:panelGrid>
 					</p:tab>
-					
+
 					<p:tab title="Location">
 						<h:panelGrid id="gridLocation" columns="2" cellpadding="5">
-							<h:outputLabel value="Country: "
-								style="font-weight:bold" />
-							<p:outputLabel value="#{userController.user.person.location.country}" />
-								
-							<h:outputLabel value="State/Province: "
-								style="font-weight:bold" />
-							<p:outputLabel value="#{userController.user.person.location.name}" />
-							
-							<h:outputLabel value="City: "
-								style="font-weight:bold" />
-							<p:outputLabel value="#{userController.user.person.location.shortName}" />
-							
-							<h:outputLabel value="Time Zone: "
-								style="font-weight:bold" />
-							<p:outputLabel value="#{userController.user.person.location.timezone}" />
+							<h:outputLabel value="Country: " style="font-weight:bold; font-size: 14px !important;" />
+							<p:outputLabel
+								value="#{userController.user.person.location.country}" />
+
+							<h:outputLabel value="State/Province: " style="font-weight:bold;font-size: 14px !important;" />
+							<p:outputLabel
+								value="#{userController.user.person.location.name}" />
+
+							<h:outputLabel value="City: " style="font-weight:bold;font-size: 14px !important;" />
+							<p:outputLabel
+								value="#{userController.user.person.location.shortName}" />
+
+							<h:outputLabel value="Time Zone: " style="font-weight:bold;font-size: 14px !important;" />
+							<p:outputLabel
+								value="#{userController.user.person.location.timezone}" />
 						</h:panelGrid>
 					</p:tab>
 
 					<p:tab title="Experience">
-						<p:dataTable var="experience" value="#{userController.experiences}" 
+						<p:dataTable var="experience"
+							value="#{userController.experiences}"
 							emptyMessage="No experience">
 							<f:facet name="header">
 					            Experiences
 					        </f:facet>
-					        
-					        <p:column>
+
+							<p:column>
 								<f:facet name="header">
-									<h:outputText value="Position" style="font-weight: bold !important;" />
+									<h:outputText value="Position"
+										style="font-weight: bold !important; font-size: 14px !important;" />
 								</f:facet>
-								<h:outputText value="#{experience.name}" />
+								<h:outputText style="font-size: 14px !important;" value="#{experience.name}" />
 							</p:column>
 
 							<p:column>
 								<f:facet name="header">
-									<h:outputText value="From" style="font-weight: bold !important;" />
+									<h:outputText value="From"
+										style="font-weight: bold !important;font-size: 14px !important;" />
 								</f:facet>
-								<h:outputText value="#{experience.fromYear} #{experience.fromMonth}" />
+								<h:outputText style="font-size: 14px !important;"
+									value="#{experience.fromYear} #{experience.fromMonth}" />
 							</p:column>
 
 							<p:column>
 								<f:facet name="header">
-									<h:outputText value="From" style="font-weight: bold !important;" />
+									<h:outputText value="To"
+										style="font-weight: bold !important; font-size: 14px !important;" />
 								</f:facet>
-								<h:outputText value="#{experience.toYear} #{experience.toMonth}" />
+								<h:outputText value="#{experience.toYear} #{experience.toMonth}" 
+									style="font-size: 14px !important;"/>
 							</p:column>
 						</p:dataTable>
 
 					</p:tab>
-					
+
 					<p:tab title="Studies">
-						<p:dataTable var="experience" value="#{userController.studies}" 
-							emptyMessage="No experience">
+						<p:dataTable var="study" value="#{userController.studies}"
+							emptyMessage="No studies">
 							<f:facet name="header">
-					            Experiences
+					            Studies
 					        </f:facet>
-					        
-					        <p:column>
+
+							<p:column>
 								<f:facet name="header">
-									<h:outputText value="Position" style="font-weight: bold !important;" />
+									<h:outputText value="Degree"
+										style="font-weight: bold !important;font-size: 14px !important;" />
 								</f:facet>
-								<h:outputText value="#{experience.name}" />
+								<h:outputText style="font-size: 14px !important;" value="#{study.name}" />
 							</p:column>
 
 							<p:column>
 								<f:facet name="header">
-									<h:outputText value="From" style="font-weight: bold !important;" />
+									<h:outputText value="From"
+										style="font-weight: bold !important; font-size: 14px !important;" />
 								</f:facet>
-								<h:outputText value="#{experience.fromYear} #{experience.fromMonth}" />
+								<h:outputText value="#{study.fromYear} #{study.fromMonth}" 
+									style="font-size: 14px !important;" />
 							</p:column>
 
 							<p:column>
 								<f:facet name="header">
-									<h:outputText value="From" style="font-weight: bold !important;" />
+									<h:outputText value="To"
+										style="font-weight: bold !important; font-size: 14px !important;" />
 								</f:facet>
-								<h:outputText value="#{experience.toYear} #{experience.toMonth}" />
+								<h:outputText value="#{study.toYear} #{study.toMonth}" 
+									style="font-size: 14px !important;"/>
 							</p:column>
 						</p:dataTable>
 					</p:tab>

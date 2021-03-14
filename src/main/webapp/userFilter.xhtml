@@ -20,18 +20,23 @@
 					<p:messages>
 						<p:autoUpdate />
 					</p:messages>
+
+					<h:panelGrid columns="3" cellpadding="5">
+
+						<h:outputLabel value="User Id:" style="font-weight:bold; font-size: 14px !important;" />
+						<p:inputText value="#{userController.userName}" required="true" />
+						<p:commandButton value="Search" icon="pi pi-search"
+							id="searchBtn" action="#{userController.findUserInfo()}"
+							update="growl" styleClass="p-mt-3" />
+					</h:panelGrid>
 					
-					<h:outputLabel value="Person Code:" style="font-weight:bold" />
-					<h:outputText value="&#160;" />
-					<p:inputText value="#{userController.userName}" required="true" />
-					<h:outputText value="&#160;" />
-					<p:commandButton value="Search" ajax="false" icon="pi pi-check" id="searchBtn"
-						action="#{userController.findUserInfo()}"
-						style="margin-right:10px" validateClient="true" />
 				</p:panel>
 				<p:blockUI block="panel" trigger="searchBtn">
+					<h:graphicImage library="images" name="loading.png" height="45"
+						style="margin-right: 12px; vertical-align: middle;"/>
 					<h:outputText value="Loading..." style="white-space: nowrap;"/>
 				</p:blockUI>
+				<p:growl id="growl"/>
 			</h:form>
 		</ui:define>
 	</ui:composition>
