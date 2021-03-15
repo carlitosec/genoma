@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import co.torre.genoma.dao.ConsumerDao;
 import co.torre.genoma.model.Job;
-import co.torre.genoma.model.User;
 import co.torre.genoma.service.JobService;
 import co.torre.genoma.util.Constant;
 
