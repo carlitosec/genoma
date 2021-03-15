@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User getUserInfo(String userName) {
-//		ConsumerDao<User> consumer = new ConsumerDaoImpl<>();
 		String endPoint = Constant.USER_URL + userName;
 		User user = consumer.consumeApiRest(endPoint, User.class);
 		return user;

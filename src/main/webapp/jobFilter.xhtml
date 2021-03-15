@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+		</ui:define>
+
+		<ui:define name="content">
+			<p></p>
+			<p></p>
+			<h:form>
+				<p:panel id="panel" header="Search Job">
+					<p:messages>
+						<p:autoUpdate />
+					</p:messages>
+
+					<h:panelGrid columns="3" cellpadding="5">
+
+						<h:outputLabel value="Job Id:" style="font-weight:bold; font-size: 14px !important;" />
+						<p:inputText value="#{jobController.jobId}" required="true" />
+						<p:commandButton value="Search" icon="pi pi-search"
+							id="searchBtn" action="#{jobController.findJobInfo()}"
+							update="growl" styleClass="p-mt-3" />
+					</h:panelGrid>
+					
+				</p:panel>
+				<p:blockUI block="panel" trigger="searchBtn">
+					<h:graphicImage library="images" name="loading.png" height="45"
+						style="margin-right: 12px; vertical-align: middle;"/>
+					<h:outputText value="Loading..." style="white-space: nowrap;"/>
+				</p:blockUI>
+				<p:growl id="growl"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

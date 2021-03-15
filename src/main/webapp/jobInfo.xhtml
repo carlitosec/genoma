@@ -1,0 +1,150 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body styleClass="waterImage">
+	<ui:composition template="template.xhtml">
+		<ui:define name="top">
+		</ui:define>
+
+		<ui:define name="content">
+			<p></p>
+			<p></p>
+			<h:form>
+
+				<div class="card" style="margin: auto; width: 40%;">
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        #{jobController.job.objective}
+						    </f:facet>
+						    <p>#{jobController.findDetail('reason')}</p>
+						</p:card>
+					</p>
+
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Responsibilities
+						    </f:facet>
+
+							<p>#{jobController.findDetail('responsibilities')}</p>
+						</p:card>
+					</p>
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Requirements
+						    </f:facet>
+
+							<p>#{jobController.findDetail('requirements')}</p>
+						</p:card>
+					</p>
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Monetary Compensation
+						    </f:facet>
+
+							<p>#{jobController.job.compensation.currency}
+								#{jobController.job.compensation.minAmount} -
+								#{jobController.job.compensation.maxAmount}
+								/#{jobController.job.compensation.periodicity}</p>
+
+						</p:card>
+					</p>
+
+					<p:divider />
+
+					<p>
+						<h5>You'd be working with:</h5>
+						<p:carousel value="#{jobController.members}" var="member"
+							responsive="true">
+							<div class="product">
+								<div class="product-grid-item p-p-5">
+									<div class="product-grid-item-top">
+										<div>
+											<i class="pi pi-tag product-category-icon" /> <span
+												class="product-category">Team</span>
+										</div>
+									</div>
+									<div class="product-grid-item-content">
+										<h:graphicImage url="#{member.person.picture}"
+											style="width:90" />
+										<div class="product-name">#{member.person.name}</div>
+										<div class="product-description">#{member.person.professionalHeadline}</div>
+									</div>
+								</div>
+							</div>
+						</p:carousel>
+					</p>
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Challenges
+						    </f:facet>
+
+							<p>#{jobController.findDetail('challenges')}</p>
+						</p:card>
+					</p>
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Career Path
+						    </f:facet>
+
+							<p>#{jobController.findDetail('career-path')}</p>
+						</p:card>
+					</p>
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Team Culture
+						    </f:facet>
+
+							<p>#{jobController.findDetail('team-culture')}</p>
+						</p:card>
+					</p>
+					<p:divider />
+					
+					<p>
+						<p:card style="width: 36rem; margin-bottom: 2em">
+							<f:facet name="title">
+						        Team Structure
+						    </f:facet>
+
+							<p>#{jobController.findDetail('team-structure')}</p>
+						</p:card>
+					</p>
+					<p:divider />
+
+				</div>
+
+
+
+
+
+
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

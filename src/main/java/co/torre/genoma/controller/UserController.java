@@ -29,15 +29,27 @@ public class UserController {
 	private String userName;
 	private User user;
 
+	/**
+	 * find a people by username
+	 * @return String object to redirect to another page
+	 */
 	public String findUserInfo() {
 		user = userService.getUserInfo(getUserName());
 		return "userInfo";
 	}
 
+	/**
+	 * Get experiences from person 
+	 * @return list of experiences
+	 */
 	public List<Experience> getExperiences() {
 		return user.getExperiences().stream().filter(e -> e.getCategory().equals("jobs")).collect(Collectors.toList());
 	}
 
+	/**
+	 * Get studies from person 
+	 * @return list of studies
+	 */
 	public List<Experience> getStudies() {
 		return user.getExperiences().stream().filter(e -> e.getCategory().equals("education"))
 				.collect(Collectors.toList());

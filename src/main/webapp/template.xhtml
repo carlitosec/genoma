@@ -6,6 +6,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
+	<h:outputStylesheet name="layout.css" library="css" />
 	<style type="text/css">
 		@font-face {
 		    font-family: 'nexa-heavy';
@@ -108,7 +109,8 @@
 			<p:growl id="messages" life="2000" />
 			<p:menubar id="menu">
 				<p:submenu label="Menu options">
-					<p:menuitem value="Personas" url="userFilter.xhtml" icon="pi pi-user" />
+					<p:menuitem value="Search People" url="userFilter.xhtml" icon="pi pi-user" />
+					<p:menuitem value="Search Job" url="jobFilter.xhtml" icon="pi pi-home" />
 				</p:submenu>
 			</p:menubar>
 		</h:form>
