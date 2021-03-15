@@ -19,7 +19,6 @@ public class Person {
 	private String created;
 	private Boolean showPhone;
 	private Boolean verified;
-	private JsonNode flags;
 	private Integer weigth;
 	private String name;
 	private String picture;
@@ -61,18 +60,6 @@ public class Person {
 	 */
 	public void setVerified(Boolean verified) {
 		this.verified = verified;
-	}
-	/**
-	 * @return the flags
-	 */
-	public JsonNode getFlags() {
-		return flags;
-	}
-	/**
-	 * @param flags the flags to set
-	 */
-	public void setFlags(JsonNode flags) {
-		this.flags = flags;
 	}
 	/**
 	 * @return the weigth
