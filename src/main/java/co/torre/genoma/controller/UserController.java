@@ -20,7 +20,6 @@ import co.torre.genoma.service.UserService;
  * @author ccarrillo
  *
  */
-// @SessionScoped
 @RequestScoped
 @ManagedBean
 public class UserController {
@@ -42,7 +41,7 @@ public class UserController {
 			
 			if(user.getPerson() == null) {
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found - null!!!.", null));
+						new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found!!.", null));
 				return null;
 			}
 			
