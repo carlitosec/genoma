@@ -42,14 +42,15 @@ public class UserController {
 			
 			if(user.getPerson() == null) {
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found!!.", null));
+						new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found - null!!.", null));
 				return null;
 			}
 			
 			return "userInfo";
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found!!.", null));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found!!." + e.getLocalizedMessage() + " " 
+							+ e.getMessage(), null));
 			return null;
 		}
 	}
