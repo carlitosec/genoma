@@ -6,8 +6,10 @@ package co.torre.genoma.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import co.torre.genoma.model.Experience;
@@ -31,15 +33,30 @@ public class UserController {
 
 	/**
 	 * find a people by username
+	 * 
 	 * @return String object to redirect to another page
 	 */
 	public String findUserInfo() {
-		user = userService.getUserInfo(getUserName());
-		return "userInfo";
+		try {
+			user = userService.getUserInfo(getUserName());
+			
+			if(user.getPerson() == null) {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found!!.", null));
+				return null;
+			}
+			
+			return "userInfo";
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "No record found!!.", null));
+			return null;
+		}
 	}
 
 	/**
-	 * Get experiences from person 
+	 * Get experiences from person
+	 * 
 	 * @return list of experiences
 	 */
 	public List<Experience> getExperiences() {
@@ -47,7 +64,8 @@ public class UserController {
 	}
 
 	/**
-	 * Get studies from person 
+	 * Get studies from person
+	 * 
 	 * @return list of studies
 	 */
 	public List<Experience> getStudies() {
